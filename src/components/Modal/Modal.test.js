@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event'
 import Modal from "./Modal"
 
-test('calls onClick function when clicked', () => {
+it('calls onClick function when clicked', () => {
 render(<Modal/>)
 const modalDiv=screen.queryByTestId("modal-div")
 const btn=screen.getByRole("button")
@@ -13,7 +13,7 @@ userEvent.click(btn)
 expect(modalDiv).toHaveTextContent(/hello world/i)
 })
 
-test('testing the first child element content', () => {
+it('testing the first child element content', () => {
 const {container}=render(<Modal/>)
-expect(container.firstChild.firstChild).toHaveTextContent(/hi I am the first child/i)
+expect(container.firstChild).toHaveTextContent(/hi I am the first child/i)
 })
